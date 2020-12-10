@@ -11,12 +11,6 @@ const Styles = styled.div
 .mainImage {
     height: 100%;
 }
-
-.navbar {
-    position: relative;
-    top: 0;
-    right: 0;
-}
 `
 
 const Home = () => {

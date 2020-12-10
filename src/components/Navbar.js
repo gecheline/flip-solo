@@ -59,7 +59,7 @@ const Navbar = ({ sticky }) => (
       <ul className="navbar--link">
         <li className="navbar--link-item">Home</li>
         <li className="navbar--link-item">Radio</li>
-        <li className="navbar--link-item">Video</li>
+        <li className="navbar--link-item">TV</li>
         <li className="navbar--link-item">About</li>
         <li className="navbar--link-item">Merch</li>
         <li className="navbar--link-item">Contact</li>

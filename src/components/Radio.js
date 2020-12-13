@@ -1,17 +1,44 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import RadioPlayer from './RadioPlayer'
 import {motion} from 'framer-motion';
+import Slider from "react-slick";
+import "../../node_modules/slick-carousel/slick/slick.css";
+import "../../node_modules/slick-carousel/slick/slick-theme.css";
+ 
+import flipepcover from '../assets/FlipEP/coverart.png'
+import dirt2stardust from '../assets/FlipEP/Dirt_to_stardust.mp3';
+import bbbitch from '../assets/FlipEP/Bad_bad_bitch.mp3';
+import allwrong from '../assets/FlipEP/All_wrong.mp3';
+import lies from '../assets/FlipEP/Lies.mp3';
+
+import streamcover from '../assets/AStreamOfThoughts/coverart.jpg'
+import arrival from '../assets/AStreamOfThoughts/Arrival.mp3';
+import canthavetoomuch from '../assets/AStreamOfThoughts/Cant_have_too_much.mp3';
+import chillguitar from '../assets/AStreamOfThoughts/Chill_Guitar.mp3';
+import gettingready from '../assets/AStreamOfThoughts/Getting_ready.mp3';
+import mondayne from '../assets/AStreamOfThoughts/Monday_ne.mp3';
+import views from '../assets/AStreamOfThoughts/Views.mp3';
+
+import ilikeyoucover from '../assets/OhAndIlikeYouSingle/ilikeyou_square.png'
+import ohandilikeyou from '../assets/OhAndIlikeYouSingle/Oh_and_I_like_you.mp3';
 
 const Styles = styled.div
 `
+.section {
+    flex-direction: column;
+}
 .col {
     height: 85vh;
     width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
 
 .radio-col {
-    width: 55vw;
+    width: 100%;
     height: 40vw;
     max-height: 95vh;
     display: flex;
@@ -37,12 +64,12 @@ const Styles = styled.div
 
 blockquote {
     font-size: 2em;
-    margin: auto;
-    width: auto;
-    padding: 2%;
-    padding-right: 0;
-    margin-bottom: 0;
-    margin-top: 0;
+    // margin: auto;
+    // width: auto;
+    // padding: 2%;
+    // padding-right: 0;
+    // margin-bottom: 0;
+    margin-top: 10%;
 
 }
 
@@ -57,8 +84,8 @@ blockquote {
 }
 
 .info-col {
-    width: 40vw;
-    height: 75vh;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,6 +95,27 @@ blockquote {
     
 }
 
+
+.discography {
+    height: 20vw;
+    width: 50vw;
+    // margin-left: 10%;
+    // margin-top: 1vh;
+    // background-color: #0a0e1e;
+}
+
+.discography div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.discography img{
+    height: 19vw;
+    width: 19vw;
+    padding: 1%;
+}
 
 `
 const iconColor = 'black'
@@ -82,50 +130,147 @@ const playmusic = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
 const itunes = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height={iconSize}><path fill={iconColor} d="M381.9 388.2c-6.4 27.4-27.2 42.8-55.1 48-24.5 4.5-44.9 5.6-64.5-10.2-23.9-20.1-24.2-53.4-2.7-74.4 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 6.4-7.2 4.4-4.1 4.4-163.2 0-11.2-5.5-14.3-17-12.3-8.2 1.4-185.7 34.6-185.7 34.6-10.2 2.2-13.4 5.2-13.4 16.7 0 234.7 1.1 223.9-2.5 239.5-4.2 18.2-15.4 31.9-30.2 39.5-16.8 9.3-47.2 13.4-63.4 10.4-43.2-8.1-58.4-58-29.1-86.6 17-16.2 40.9-19.5 76.8-25.8 6-1.1 11.2-2.5 15.6-7.4 10.1-11.5 1.8-256.6 5.2-270.2.8-5.2 3-9.6 7.1-12.9 4.2-3.5 11.8-5.5 13.4-5.5 204-38.2 228.9-43.1 232.4-43.1 11.5-.8 18.1 6 18.1 17.6.2 344.5 1.1 326-1.8 338.5z"/></svg>
 const amazonmusic = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height={iconSize}><path fill={iconColor} d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8v40.6zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z"/></svg>
 
-const Radio = () => {
-    return ( 
+
+const iLikeYouSingle = {tag: 'ilikeyousingle', 
+                        albumtitle: 'Oh, and I like you (Single)', 
+                        songlist: [
+                            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 1},
+                            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 2}
+                        ]}
+
+const flipEP = {tag: 'flipep', 
+                albumtitle: 'Fl!p (EP)', 
+                songlist: [
+                    {title: 'Dirt to Stardust', audiofile: dirt2stardust, id: 1},
+                    {title: 'Bad, Bad B***h', audiofile: bbbitch, id: 2},
+                    {title: 'Lies', audiofile: lies, id: 3},
+                    {title: 'All Wrong', audiofile: allwrong, id: 4}
+                ]}
+
+const aStreamofThoughts = {tag: 'astreamofthoughts', 
+                            albumtitle: 'A Stream of Thoughts', 
+                            songlist: [
+                                {title: 'Views', audiofile: views, id: 1},
+                                {title: 'Arrival', audiofile: arrival, id: 2},
+                                {title: 'Can\'t have too much', audiofile: canthavetoomuch, id: 3},
+                                {title: 'Chill Guitar', audiofile: chillguitar, id: 4},
+                                {title: 'Getting Ready', audiofile: gettingready, id: 5},
+                                {title: 'Monday Ne', audiofile: mondayne, id: 6}
+                            ]}
+
+
+// const params = {
+//     effect: 'coverflow',
+//     grabCursor: true,
+//     centeredSlides: true,
+//     slidesPerView: 'auto',
+//     coverflowEffect: {
+//         rotate: 50,
+//         stretch: 0,
+//         depth: 100,
+//         modifier: 1,
+//         slideShadows: true
+//     },
+//     pagination: {
+//         el: '.swiper-pagination'
+//     }
+//     }
+
+class Radio extends Component {
+ 
+    constructor(props) {
+      super(props);
+      this.state = {
+          songlist: [
+            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 1},
+            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 2}
+        ],
+          albumtitle: 'Oh, and I like you (Single)',
+      };
+  
+      
+    }
+
+
+    handleAlbumClick (tag) {
+        console.log(tag)
+        if (tag === 'ilikeyousingle') { this.setState({songlist: iLikeYouSingle.songlist, albumtitle: iLikeYouSingle.albumtitle})};
+        if (tag === 'flipep') { this.setState({songlist: flipEP.songlist, albumtitle: flipEP.albumtitle})};
+        if (tag === 'astreamofthoughts') { this.setState({songlist: aStreamofThoughts.songlist, albumtitle: aStreamofThoughts.albumtitle})};
+        
+        console.log(this.state.albumtitle)
+        }
+
+
+    
+    render() {
+        return (
         <Styles>
             <div className='section'>
                 <div className='col info-col'>
-                <blockquote 
-                        // style={{borderLeft: '3px solid #ef694d'}}
-                        >
-                        <p>
-                                <em>
-                                Available on all streaming platforms, even on <b><motion.a style={{color: '#f5a342', textDecoration: 'none'}}
-                                animate = {{opacity: [1., 0.75, 1.]}}
-                                transition = {{duration: 0.1, yoyo: Infinity, repeatDelay: 1}} href='#grandmasradio'>grandma's radio!</motion.a></b></em>
-                                </p>
-                        <p style={{fontSize: '0.9em', textAlign: 'right', marginRight: '5%'}}>
-                            — Flip, every time</p>
-                        </blockquote>
+                    <blockquote 
+                    // style={{borderLeft: '3px solid #ef694d'}}
+                    >
+                    <p>
+                            <em>
+                            Available on all streaming platforms, even on <b><motion.a style={{color: '#ac4684', textDecoration: 'none'}}
+                            animate = {{opacity: [1., 0.75, 1.]}}
+                            transition = {{duration: 0.1, yoyo: Infinity, repeatDelay: 1}} href='#grandmasradio'>grandma's radio!</motion.a></b></em>
+                            </p>
+                    <p style={{fontSize: '0.9em', textAlign: 'right', marginRight: '5%'}}>
+                        — Flip, every time</p>
+                    </blockquote>
 
-                        <div className='music-icons center'>
-                            <a href="https://open.spotify.com/album/3gzaajy5HJLS0h9o9M8snA" target="_blank" rel="noopener noreferrer"><motion.div     
-                            animate = {{scale: [1., 0.9, 1.]}}
-                            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
-                            >{spotify}</motion.div></a>
-                            <a href="https://music.apple.com/us/album/fl-p-ep/1532114353" target="_blank" rel="noopener noreferrer"><motion.div     
-                            animate = {{scale: [1., 0.9, 1.]}}
-                            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.5}}>{itunes}</motion.div></a>
-                            <a href="https://play.google.com/store/music/album/Fl_p_Fl_p?id=Blt3v3sxlwepcsdmlotq35b3hjm" target="_blank" rel="noopener noreferrer"><motion.div     
-                            animate = {{scale: [1., 0.9, 1.]}}
-                            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 4.2}}>{playmusic}</motion.div></a>
-                            <a href="https://music.amazon.com/albums/B085XZQ89W" target="_blank" rel="noopener noreferrer"><motion.div     
-                            animate = {{scale: [1., 0.9, 1.]}}
-                            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2.7}}>{amazonmusic}</motion.div></a>
-                            <a href="https://www.deezer.com/us/album/173854542" target="_blank" rel="noopener noreferrer"><motion.div     
-                            animate = {{scale: [1., 0.9, 1.]}}
-                        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>{deezer}</motion.div></a>
+                    <div className='music-icons center'>
+                        <a href="https://open.spotify.com/album/3gzaajy5HJLS0h9o9M8snA" target="_blank" rel="noopener noreferrer"><motion.div     
+                        animate = {{scale: [1., 0.9, 1.]}}
+                        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
+                        >{spotify}</motion.div></a>
+                        <a href="https://music.apple.com/us/album/fl-p-ep/1532114353" target="_blank" rel="noopener noreferrer"><motion.div     
+                        animate = {{scale: [1., 0.9, 1.]}}
+                        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.5}}>{itunes}</motion.div></a>
+                        <a href="https://play.google.com/store/music/album/Fl_p_Fl_p?id=Blt3v3sxlwepcsdmlotq35b3hjm" target="_blank" rel="noopener noreferrer"><motion.div     
+                        animate = {{scale: [1., 0.9, 1.]}}
+                        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 4.2}}>{playmusic}</motion.div></a>
+                        <a href="https://music.amazon.com/albums/B085XZQ89W" target="_blank" rel="noopener noreferrer"><motion.div     
+                        animate = {{scale: [1., 0.9, 1.]}}
+                        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2.7}}>{amazonmusic}</motion.div></a>
+                        <a href="https://www.deezer.com/us/album/173854542" target="_blank" rel="noopener noreferrer"><motion.div     
+                        animate = {{scale: [1., 0.9, 1.]}}
+                    transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>{deezer}</motion.div></a>
+                    </div>
+
+                    <div>
+                        <p>Click on album below to play it on grandma's radio!</p>
+                    </div>
+                    <Slider className='discography center'
+                        dots = {true}
+                        infinite = {true}
+                        speed = {500}
+                        slidesToShow = {2}
+                        slidesToScroll = {1}
+                        centerMode = {true}
+                        centerPadding = '90px'
+                        >
+                        <div>
+                        <img src={flipepcover} onClick = {() => this.handleAlbumClick ('flipep')}/>
                         </div>
-                </div>
+                        <div>
+                        <img src={streamcover} onClick = {() => this.handleAlbumClick ('astreamofthoughts')}/>
+                        </div>
+                        <div>
+                        <img src={ilikeyoucover} onClick = {() => this.handleAlbumClick ('ilikeyousingle')}/>
+                        </div>
+                        </Slider>
+                    </div>
+
             <div className='col radio-col' id='grandmasradio'>
-            <RadioPlayer />
+            <RadioPlayer songlist = {this.state.songlist} album = {this.state.albumtitle}/>
             </div>
             </div>
 
         </Styles>
-     );
+     );}
 }
  
 export default Radio;

@@ -10,6 +10,7 @@ const Styles = styled.div
 }
 .mainImage {
     height: 100%;
+    margin-top: 5rem;
 }
 `
 

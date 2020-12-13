@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 
 var xs = [];
 
-for (var x = 387.73; x <= 797.73; x+=10) {
+for (var x = 470.73; x <= 870.73; x+=10) {
     xs.push(x);
 }
 
@@ -15,7 +15,7 @@ const rects_eq = xs.map((x) =>
     animate = {{scaleY: [1,2,3,4,5,6,7,8,9,10].map((i) => Math.random())}}
     transition = {{duration: 1, yoyo: Infinity}}>
     <rect 
-    width="7.67" height="25.65" transform={"translate(" + x + " 516.08)"}
+    width="7.67" height="25.65" transform={"translate(" + x + " 509.08)"}
     style={{fill: '#ffffff', stroke:'none'}}></rect>
 </motion.g>
 );

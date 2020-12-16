@@ -10,7 +10,9 @@ html {
 
 body {
   overflow-x: hidden;
-  Font-Family: 'Overpass', Sans-Serif;
+  font-family: 'Playfair Display', serif;
+  width: 100vw;
+  font-size: 1.5rem;
 }
 
 
@@ -20,29 +22,49 @@ body {
 
 .section {
   background-color: white;
-  color: black;
+  color: #0a0e1e;
   height: auto;
   width: 100vw;
   height: auto;
   padding: 1%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  Font-Family: 'Overpass', Sans-Serif;
-}
-
-@media (max-width: 992px) {
-  .section{
-      flex-direction: column;
-      text-align: right;
-      justify-content: center;
-      align-items: center;
-  }
+  /* margin-top: 75px; */
 }
 
 .section h1 {
-  font-size: 2rem;
+  /* font-size: 2rem; */
   Font-Family: 'Permanent Marker', Cursive;
 }
+
+.col {
+  width: 50vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.col h1 {
+  margin: 20px;
+  /* font-size: 3rem; */
+}
+
+@media (max-width: 992px) {
+  .col{
+      width: 75vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+  }
+
+}
+
+
 

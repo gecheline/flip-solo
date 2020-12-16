@@ -2,8 +2,8 @@ import React from 'react';
 import Home from './components/Home';
 import TV from './components/TV'
 import Radio from './components/Radio'
+// import About from './components/About';
 import Socials from './components/Socials';
-import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons'
 
 
 const AllSections = ({ element }) => {
@@ -12,7 +12,8 @@ const AllSections = ({ element }) => {
             <Home />
             <Radio />
             <TV />
-            <Socials />      
+            <Socials />
+            {/* <About />    */}  
         </div>
       );
 }

@@ -3,38 +3,39 @@ import styled from 'styled-components';
 
 const Styles = styled.div
 `
-
-.section{
-    flex-direction: column;
-}
-.col {
-    height: auto;
-    width: 25vw;
-    // border: 2px solid red;
-    padding: 1%;
-    margin: 1%;
-    font-size: 2rem;
-}
-
 .pitch {
-    width: 50vw;
+    // font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .info {
     background-color: #32327c;
     color: white;
+    border-radius: 15px;
 
 }
 
+.info h1 {
+    margin: 5px;
+}
+
+.info {
+    // font-size: 2rem;
+}
 .youtube-player {
     width: 50vw;
     height: 28.125vw;
     margin: auto;
     padding: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 ul {
-    margin: 2em;
+    margin: 1em;
     list-style-type: none;
     color: white;
 }
@@ -58,19 +59,23 @@ a {
 .expectations ul {
     margin 1em;
     color: black;
-    font-size: 0.75em;
 }
-@media (max-width: 992px) {
-    .section{
-        flex-direction: column;
-        text-align: right;
-        justify-content: center;
-        align-items: center;
-    }
 
+.vl {
+    border-left: 6px solid #32327c;
+    height: auto;
+    margin: 1em;
+  }
+
+  
+@media (max-width: 992px) {
     .youtube-player {
         width: 90vw;
         height: 50.625vw;
+    }
+
+    .expectations {
+        width: 95vw;
     }
 
       
@@ -80,10 +85,13 @@ a {
 const TV = () => {
     return (
         <Styles>
-        <div className='section tv'>
+        <div className='section tv' id='tv'>
+            <div className='col'>
+                <h1>TV</h1>
+            </div>
             <div className='col info'>
-                <h1>Join the hoomin fam on Twitch</h1>
-                <h1><a href='https://twitch.tv/flipofficial'>Twitch.tv/flipofficial</a></h1>
+                <h1>Join the hoomin fam!</h1>
+                <h2><a href='https://twitch.tv/flipofficial'>twitch.tv/flipofficial</a></h2>
 
                 <ul>
                     <li>TUE 3PM EST</li>
@@ -103,25 +111,34 @@ const TV = () => {
                 <div>
                     <h1>what to expect</h1>
                 <ul>
-                    <li>Good vibes</li>
-                    <li>Loops</li>
-                    <li>Original music and covers</li>
-                    <li>Guest appearances by kitty and doggo</li>
-                    <li>Fl!p yelling your username</li>
+                    <li>GOOD VIBES</li>
+                    <li>LOOPS</li>
+                    <li>ORIGINAL MUSIC & COVERS</li>
+                    <li>PET CAMEOS</li>
+                    <li>FLIP YELLING</li>
                 </ul>
                 </div>
-
+                <div class="vl"></div>
                 <div>
-                    <h1>what NOT to expect</h1>
+                    <h1>NEVER happening</h1>
                 <ul>
-                    <li>Rasputin</li>
-                    <li>Baby shark</li>
-                    <li>Despacito</li>
-                    <li>Fl!p to follow chat</li>
-                    <li>Rasputin</li>
+                    <li>RASPUTIN</li>
+                    <li>BABY SHARK</li>
+                    <li>DESPACITO</li>
+                    <li>FLIP FOLLOWING CHAT</li>
+                    <li>RASPUTIN!</li>
                 </ul>
                 </div>
                 </div>
+            </div>
+
+            <div className='col info'>
+                <h1>Subscribe to the <a href='https://twitch.tv/flipofficial'>YouTube</a> channel!</h1>
+            </div>
+            <div className='col pitch'>
+            <p>
+                Official music videos, scraped music projects, covers, Twitch higlights, collaborations, live performances, and much more!
+            </p>
             </div>
 
             <div className='col youtube-player'>

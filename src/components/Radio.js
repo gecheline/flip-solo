@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Parallax, Background } from 'react-parallax';
 import styled from 'styled-components';
 import RadioPlayer from './RadioPlayer'
 import {motion} from 'framer-motion';
@@ -12,64 +13,93 @@ import bbbitch from '../assets/FlipEP/Bad_bad_bitch.mp3';
 import allwrong from '../assets/FlipEP/All_wrong.mp3';
 import lies from '../assets/FlipEP/Lies.mp3';
 
-import streamcover from '../assets/AStreamOfThoughts/coverart.jpg'
-import arrival from '../assets/AStreamOfThoughts/Arrival.mp3';
-import canthavetoomuch from '../assets/AStreamOfThoughts/Cant_have_too_much.mp3';
-import chillguitar from '../assets/AStreamOfThoughts/Chill_Guitar.mp3';
-import gettingready from '../assets/AStreamOfThoughts/Getting_ready.mp3';
-import mondayne from '../assets/AStreamOfThoughts/Monday_ne.mp3';
-import views from '../assets/AStreamOfThoughts/Views.mp3';
+import streamcover from '../assets/StreamOfThoughts/cover_final.png'
+import arrival from '../assets/StreamOfThoughts/Arrival.mp3';
+import canthavetoomuch from '../assets/StreamOfThoughts/Cant_have_too_much.mp3';
+import chillguitar from '../assets/StreamOfThoughts/Chill_Guitar.mp3';
+import gettingready from '../assets/StreamOfThoughts/Getting_ready.mp3';
+import mondayne from '../assets/StreamOfThoughts/Monday_ne.mp3';
+import views from '../assets/StreamOfThoughts/Views.mp3';
+import fastchat from '../assets/StreamOfThoughts/Fast_Chat.mp3';
+import justchatting from '../assets/StreamOfThoughts/Just_chatting.mp3';
+import dontwannabelikeme from '../assets/StreamOfThoughts/I_dont_want_to_be_like_me.mp3'
+
+import baecover from '../assets/SongsBae/cover.png';
+import space from '../assets/SongsBae/are_we_in_space_or_something.mp3';
+import livingroom from '../assets/SongsBae/chillin_in_the_living_room.mp3';
+import kitchenhang from '../assets/SongsBae/kitchen_hang_out.mp3';
+import yoursong from '../assets/SongsBae/let_me_hear_your_song.mp3';
+import rising from '../assets/SongsBae/rising.mp3';
+import sleepycrew from '../assets/SongsBae/sleepy_crew.mp3';
+import ivanwalk from '../assets/SongsBae/time_to_take_ivan_out_for_a_walk.mp3';
+
+import sunrisecover from '../assets/SunriseEP/cover.jpg';
+import coffee from '../assets/SunriseEP/Coffee.mp3';
+import emails from '../assets/SunriseEP/E-Mails.mp3';
+import newspaper from '../assets/SunriseEP/Newspaper.mp3';
+import pillow from '../assets/SunriseEP/Pillow.mp3';
+import ready4day from '../assets/SunriseEP/Ready_for_the_day.mp3';
+import toothbrush from '../assets/SunriseEP/Toothbrush.mp3';
+import traffic from '../assets/SunriseEP/Traffic.mp3';
+
 
 import ilikeyoucover from '../assets/OhAndIlikeYouSingle/ilikeyou_square.png'
 import ohandilikeyou from '../assets/OhAndIlikeYouSingle/Oh_and_I_like_you.mp3';
 
+import bgimage from '../assets/Bgstars.png';
+
 const Styles = styled.div
 `
 .section {
-    flex-direction: column;
+    padding-bottom: 2em;
+    background-color: transparent;
+    color: white;
 }
-.col {
-    height: 85vh;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
+
+h1 {
+    color: #ac4684;
+}
+
+#grandmainfo {
+    background-color: white;
+    color: #0a0e1e;
+    padding: 0.75em;
+    border-radius: 15px;
 }
 
 .radio-col {
     width: 100%;
-    height: 40vw;
+    height: auti;
     max-height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     padding: 0;
-    margin: 0;
+    margin-top: 1em;
 }
 
 .radio-col svg
 {
-        height: 40vw;
+        height: 35vw;
         // min-height: 50vw;
         width: auto;
         min-height: auto;
         max-height: auto;
         min-width: 50vw;
         max-width: 100%;
-        margin-bottom: -30px;
+        // margin-top: -30px;
 
 }
 
 blockquote {
-    font-size: 2em;
+    // font-size: 2em;
     // margin: auto;
     // width: auto;
     // padding: 2%;
     // padding-right: 0;
     // margin-bottom: 0;
-    margin-top: 10%;
+    // margin-top: 10%;
 
 }
 
@@ -84,7 +114,7 @@ blockquote {
 }
 
 .info-col {
-    width: 100%;
+    width: 95vw;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -97,11 +127,15 @@ blockquote {
 
 
 .discography {
-    height: 20vw;
-    width: 50vw;
+    // height: 20vw;
+    width: 75vw;
+    height: auto;
     // margin-left: 10%;
     // margin-top: 1vh;
-    // background-color: #0a0e1e;
+    // background-color:  #32327c;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .discography div {
@@ -112,14 +146,51 @@ blockquote {
 }
 
 .discography img{
-    height: 19vw;
-    width: 19vw;
+    height: 20vw;
+    width: 20vw;
     padding: 1%;
 }
 
+
+@media (max-width: 992px) {
+    .radio-col {
+        width: 95vw;
+        height: auto;
+    }
+
+    .radio-col svg
+    {
+        width: 100vw;
+        max-width: 100vw;
+        height:auto;
+        margin-bottom: 30px;
+    }
+
+    .discography {
+        height: auto;
+        width: 75vw;
+        // margin-left: 10%;
+        // margin-top: 1vh;
+        // background-color: #0a0e1e;
+    }
+    
+    .discography div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .discography img{
+        height: 25vw;
+        width: 25vw;
+        padding: 1%;
+    }
+}
+
 `
-const iconColor = 'black'
-const iconSize = '4em'
+const iconColor = 'white'
+const iconSize = '2.5em'
 // #9bceb5
 const spotify = <svg 
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height={iconSize}>
@@ -155,9 +226,35 @@ const aStreamofThoughts = {tag: 'astreamofthoughts',
                                 {title: 'Can\'t have too much', audiofile: canthavetoomuch, id: 3},
                                 {title: 'Chill Guitar', audiofile: chillguitar, id: 4},
                                 {title: 'Getting Ready', audiofile: gettingready, id: 5},
-                                {title: 'Monday Ne', audiofile: mondayne, id: 6}
+                                {title: 'Monday Ne', audiofile: mondayne, id: 6},
+                                {title: 'Fast Chat', audiofile: fastchat, id: 7},
+                                {title: 'I don\'t want to be like me', audiofile: dontwannabelikeme, id: 8},
+                                {title: 'Just chatting', audiofile: justchatting, id: 9}
                             ]}
 
+const songsBae = {tag: 'songsbae', 
+                            albumtitle: 'songs I wrote to listen with bae', 
+                            songlist: [
+                                {title: 'rising', audiofile: rising, id: 1},
+                                {title: 'chillin in the living room', audiofile: livingroom, id: 2},
+                                {title: 'are we in space or something', audiofile: space, id: 3},
+                                {title: 'kitchen hangout', audiofile: kitchenhang, id: 4},
+                                {title: 'let me hear your song', audiofile: yoursong, id: 5},
+                                {title: 'time to take ivan out for a walk', audiofile: ivanwalk, id: 6},
+                                {title: 'sleepy crew', audiofile: sleepycrew, id: 7}
+                            ]}
+
+const sunriseEP = {tag: 'sunriseep', 
+                            albumtitle: 'Sunrise EP', 
+                            songlist: [
+                                {title: 'Pillow', audiofile: pillow, id: 1},
+                                {title: 'Toothbrush', audiofile: toothbrush, id: 2},
+                                {title: 'Coffee',  audiofile: coffee, id: 3},
+                                {title: 'Newspaper', audiofile: newspaper, id: 4},
+                                {title: 'Emails', audiofile: emails, id: 5},
+                                {title: 'Traffic', audiofile: traffic, id: 6},
+                                {title: 'Ready for the Day', audiofile: ready4day, id: 7},
+                            ]}
 
 // const params = {
 //     effect: 'coverflow',
@@ -186,19 +283,41 @@ class Radio extends Component {
             {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 2}
         ],
           albumtitle: 'Oh, and I like you (Single)',
+          discographySlides: 3
       };
-  
-      
+
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+        
+    }
+
+    componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
     }
 
 
+    componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions() {
+    if (window.innerWidth > 992) {
+        this.setState({'discographySlides': 3});
+    }
+
+    else {
+        this.setState({'discographySlides': 2});
+    }
+    }
+
+
+
     handleAlbumClick (tag) {
-        console.log(tag)
         if (tag === 'ilikeyousingle') { this.setState({songlist: iLikeYouSingle.songlist, albumtitle: iLikeYouSingle.albumtitle})};
         if (tag === 'flipep') { this.setState({songlist: flipEP.songlist, albumtitle: flipEP.albumtitle})};
         if (tag === 'astreamofthoughts') { this.setState({songlist: aStreamofThoughts.songlist, albumtitle: aStreamofThoughts.albumtitle})};
-        
-        console.log(this.state.albumtitle)
+        if (tag === 'songsbae') { this.setState({songlist: songsBae.songlist, albumtitle: songsBae.albumtitle})};
+        if (tag === 'sunriseep') { this.setState({songlist: sunriseEP.songlist, albumtitle: sunriseEP.albumtitle})};
         }
 
 
@@ -206,22 +325,26 @@ class Radio extends Component {
     render() {
         return (
         <Styles>
-            <div className='section'>
+            <Parallax bgImage={bgimage} strength={500} className='customBg'>
+            <div className='section' id='radio'>
+            <div className='col'>
+                <h1>RADIO</h1>
+                </div>
                 <div className='col info-col'>
                     <blockquote 
-                    // style={{borderLeft: '3px solid #ef694d'}}
+                    // style={{borderLeft: '3px solid #ac4684'}}
                     >
-                    <p>
-                            <em>
-                            Available on all streaming platforms, even on <b><motion.a style={{color: '#ac4684', textDecoration: 'none'}}
+                    <p id='grandmainfo'>
+                            You know how Fl!p always says his music is available on all streaming platforms, including 
+                            <b><motion.span style={{color: '#ac4684', textDecoration: 'none'}}
                             animate = {{opacity: [1., 0.75, 1.]}}
-                            transition = {{duration: 0.1, yoyo: Infinity, repeatDelay: 1}} href='#grandmasradio'>grandma's radio!</motion.a></b></em>
+                            transition = {{duration: 0.1, yoyo: Infinity, repeatDelay: 1}}> grandma's radio</motion.span></b>?
                             </p>
-                    <p style={{fontSize: '0.9em', textAlign: 'right', marginRight: '5%'}}>
-                        — Flip, every time</p>
+                    {/* <p style={{fontSize: '0.9em', textAlign: 'right', marginRight: '5%'}}>
+                        — Flip, every time</p> */}
                     </blockquote>
 
-                    <div className='music-icons center'>
+                    <div className='music-icons'>
                         <a href="https://open.spotify.com/album/3gzaajy5HJLS0h9o9M8snA" target="_blank" rel="noopener noreferrer"><motion.div     
                         animate = {{scale: [1., 0.9, 1.]}}
                         transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
@@ -239,19 +362,28 @@ class Radio extends Component {
                         animate = {{scale: [1., 0.9, 1.]}}
                     transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>{deezer}</motion.div></a>
                     </div>
+                    {/* <p>You thought he was joking? Well, HE WASN'T!</p> */}
 
-                    <div>
-                        <p>Click on album below to play it on grandma's radio!</p>
+                    <div className='radio-col' id='grandmasradio'>
+                    <RadioPlayer songlist = {this.state.songlist} album = {this.state.albumtitle}/>
+                    </div>
+
+                    <div className='grandmapointer'>
+                        <p>Click on an album below to play it!</p>
                     </div>
                     <Slider className='discography center'
                         dots = {true}
                         infinite = {true}
-                        speed = {500}
-                        slidesToShow = {2}
+                        speed = {200}
+                        arrows = {true}
+                        slidesToShow = {this.state.discographySlides}
                         slidesToScroll = {1}
                         centerMode = {true}
-                        centerPadding = '90px'
+                        centerPadding = '5%'
                         >
+                        <div>
+                        <img src={ilikeyoucover} onClick = {() => this.handleAlbumClick ('ilikeyousingle')}/>
+                        </div>
                         <div>
                         <img src={flipepcover} onClick = {() => this.handleAlbumClick ('flipep')}/>
                         </div>
@@ -259,16 +391,18 @@ class Radio extends Component {
                         <img src={streamcover} onClick = {() => this.handleAlbumClick ('astreamofthoughts')}/>
                         </div>
                         <div>
-                        <img src={ilikeyoucover} onClick = {() => this.handleAlbumClick ('ilikeyousingle')}/>
+                        <img src={baecover} onClick = {() => this.handleAlbumClick ('songsbae')}/>
                         </div>
+                        <div>
+                        <img src={sunrisecover} onClick = {() => this.handleAlbumClick ('sunriseep')}/>
+                        </div>
+
                         </Slider>
                     </div>
 
-            <div className='col radio-col' id='grandmasradio'>
-            <RadioPlayer songlist = {this.state.songlist} album = {this.state.albumtitle}/>
-            </div>
-            </div>
 
+            </div>
+            </Parallax>
         </Styles>
      );}
 }

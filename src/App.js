@@ -1,4 +1,5 @@
 import './App.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css'
 import AllSections from './AllSections'
 import Banner from './components/Banner'
 import Navbar from './components/Navbar'

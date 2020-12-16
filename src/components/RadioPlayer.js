@@ -33,27 +33,24 @@ class RadioPlayer extends Component {
           playButtonPressed: false,
           stopButtonPressed: false,
           nextButtonPressed: false,
-          prevButtonPressed: false
+          prevButtonPressed: false,
       };
-  
-      
     }
 
     updateSonglist() {
       this.setState({songlist: this.props.songlist, 
         albumtitle: this.props.album, 
         soundfile: this.props.songlist[0].audiofile,
-        title: this.props.songlist[0].title})
+        title: this.props.songlist[0].title,
+      })
     }
 
     componentDidUpdate(prevProps) {
-      console.log(this.props)
       if (prevProps.album !== this.props.album) {
         this.updateSonglist();
       }
     }
   
-    
     
     handlePlayClick() {
   

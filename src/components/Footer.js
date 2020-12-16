@@ -10,16 +10,16 @@ const Styles = styled.div`
   color: #32327c;
   background-color: white;
   width: 100%;
-  height: 150px;
+  height: 300px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 
 .row {
-  width: 100%;
+  width: 75%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -32,7 +32,7 @@ const Styles = styled.div`
 .col {
   // border: 2px solid white;
   height: 150px;
-  width: 33%;
+  width: 50%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -55,7 +55,8 @@ const Styles = styled.div`
 
 @media (max-width: 992px) {
   .footercontainer {
-    height: 450px;
+    width: 100%;
+    height: 600px;
     flex-direction: column;
   }
 
@@ -68,6 +69,10 @@ const Styles = styled.div`
     text-align: center;
     align-items: center;
     justify-content: center;
+  }
+
+  .col{
+    width: 100%;
   }
 }
 
@@ -93,12 +98,19 @@ const Footer = () => {
       <Styles>
       <div className='footercontainer' id='contact'>
         <div className='row'>
-        <div className = 'col' id ='contact'>
+          <div className = 'col'>
             <p><b>Contact</b></p>
             <span><a href="mailto:flipbandcontact@gmail.com" style={{color: '#ff79cf'}}>flipbandcontact@gmail.com</a></span>
             <p style={{fontSize: '0.9em'}}><em>Currently based in the greater Philadelphia area!</em></p>
           </div>
+          <div className='col'>
+          <p><b>EPK</b></p>
+            <a href='https://www.sonicbids.com/band/flipbandofficial' style={{color: '#ff79cf'}}>https://www.sonicbids.com/band/flipbandofficial</a>
+          </div>
+        </div>
+
         
+        <div className='row'>
           <div className = 'col' id = 'newsletter'>
           <p>Sign up for Fl!p's mailing list:</p>
           <MailchimpSubscribe url="https://gmail.us17.list-manage.com/subscribe/post?u=731b38d880a07f37c435ace30&amp;id=807fa7ddc7" 

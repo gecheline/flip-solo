@@ -27,11 +27,17 @@ body {
   width: 100vw;
   height: auto;
   padding: 1%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   /* margin-top: 75px; */
+}
+
+.section p {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .section h1 {

@@ -42,6 +42,8 @@ class RadioPlayer extends Component {
         albumtitle: this.props.album, 
         soundfile: this.props.songlist[0].audiofile,
         title: this.props.songlist[0].title,
+        isPlaying: true,
+        soundStatus: Sound.status.PLAYING
       })
     }
 

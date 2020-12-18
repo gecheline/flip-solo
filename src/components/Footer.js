@@ -100,12 +100,12 @@ const Footer = () => {
         <div className='row'>
           <div className = 'col'>
             <p><b>Contact</b></p>
-            <span><a href="mailto:flipbandcontact@gmail.com" style={{color: '#ff79cf'}}>flipbandcontact@gmail.com</a></span>
+            <span><a href="mailto:flipbandcontact@gmail.com" target="_blank" rel="noopener noreferrer" style={{color: '#ff79cf'}}>flipbandcontact@gmail.com</a></span>
             <p style={{fontSize: '0.9em'}}><em>Currently based in the greater Philadelphia area!</em></p>
           </div>
           <div className='col'>
           <p><b>EPK</b></p>
-            <a href='https://www.sonicbids.com/band/flipbandofficial' style={{color: '#ff79cf'}}>https://www.sonicbids.com/band/flipbandofficial</a>
+            <a href='https://www.sonicbids.com/band/flipbandofficial' target="_blank" rel="noopener noreferrer" style={{color: '#ff79cf'}}>https://www.sonicbids.com/band/flipbandofficial</a>
           </div>
         </div>
 
@@ -119,19 +119,18 @@ const Footer = () => {
 
           <div className = 'col' id = 'links'>
             <div className='links-icons'>
-            <a href="https://www.facebook.com/flipbandofficial" target="_blank" rel="noopener noreferrer">{facebook}</a>
-            <a href="https://www.instagram.com/flipbandofficial/" target="_blank" rel="noopener noreferrer">{instagram}</a>
+            <a href="https://www.facebook.com/flipmusicofficial" target="_blank" rel="noopener noreferrer">{facebook}</a>
+            <a href="https://www.instagram.com/flipmusicofficial/" target="_blank" rel="noopener noreferrer">{instagram}</a>
             <a href="https://twitter.com/hatchefilip" target="_blank" rel="noopener noreferrer">{twitter}</a>
-            <a href="https://discord.com/invite/rwzb3Kb" target="_blank" rel="noopener noreferrer">{discord}</a>
-            <a href="https://www.youtube.com/c/FlipOfficial" target="_blank" rel="noopener noreferrer">{youtube}</a>
             <a href="https://www.twitch.tv/flipofficial" target="_blank" rel="noopener noreferrer">{twitch}</a>
+            <a href="https://discord.com/invite/rwzb3Kb" target="_blank" rel="noopener noreferrer">{discord}</a>
             </div>
             <div className='links-icons'>
+            <a href="https://www.youtube.com/c/FlipOfficial" target="_blank" rel="noopener noreferrer">{youtube}</a>
             <a href="https://open.spotify.com/artist/3QPspeZAv0PwCnX6DDN59i" target="_blank" rel="noopener noreferrer">{spotify}</a>
-            <a href="https://music.apple.com/us/album/fl-p-ep/1502957173" target="_blank" rel="noopener noreferrer">{itunes}</a>
-            <a href="https://play.google.com/store/music/album/Fl_p_Fl_p?id=Byv2pvx5wyhxjifmiblpqamlwqm" target="_blank" rel="noopener noreferrer">{playmusic}</a>
+            <a href="https://music.apple.com/us/artist/fl-p/1456281580" target="_blank" rel="noopener noreferrer">{itunes}</a>
             <a href="https://music.amazon.com/albums/B085XZQ89W" target="_blank" rel="noopener noreferrer">{amazonmusic}</a>
-            <a href="https://www.deezer.com/us/album/136502252" target="_blank" rel="noopener noreferrer">{deezer}</a>
+            <a href="https://www.deezer.com/us/artist/7363768" target="_blank" rel="noopener noreferrer">{deezer}</a>
             </div>
           </div>
 

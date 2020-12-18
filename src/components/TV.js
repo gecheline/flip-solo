@@ -15,6 +15,8 @@ const Styles = styled.div
     color: white;
     border-radius: 15px;
     padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 
 }
 
@@ -120,13 +122,13 @@ const TV = () => {
             <div className='col info'>
                 <h1>Join the hoomin fam!</h1>
                 <div className='icons'>
-                <div><a href='https://twitch.tv/flipofficial'>{twitch}</a></div>
-                <h2><a href='https://twitch.tv/flipofficial'>
+                <div><a href='https://twitch.tv/flipofficial' target="_blank" rel="noopener noreferrer">{twitch}</a></div>
+                <h2><a href='https://twitch.tv/flipofficial' target="_blank" rel="noopener noreferrer">
                 <motion.span style={{color: '#ac4684', textDecoration: 'none'}}
                             animate = {{opacity: [1., 0.5, 1.]}}
                             transition = {{duration: 0.1, yoyo: Infinity, repeatDelay: 1}}>twitch.tv/flipofficial</motion.span>
                     </a></h2>
-                <div><a href='https://discord.com/invite/rwzb3Kb'>{discord}</a></div>
+                <div><a href='https://discord.com/invite/rwzb3Kb' target="_blank" rel="noopener noreferrer">{discord}</a></div>
                 </div>
 
                 <ul>
@@ -134,7 +136,7 @@ const TV = () => {
                     <li>THU 3PM EST</li>
                     <li>SAT 3PM EST</li>
                 </ul>
-                <p>For other streaming times and special sub perks join the <a href='https://discord.com/invite/rwzb3Kb'>discord</a></p>
+                <p>For other streaming times and special sub perks join the <a href='https://discord.com/invite/rwzb3Kb' target="_blank" rel="noopener noreferrer">discord</a></p>
             </div>
 
             <div className='col pitch'>
@@ -169,7 +171,7 @@ const TV = () => {
             </div>
 
             <div className='col info'>
-                <h1>Subscribe to the <a href='https://youtube.com/c/FlipOfficial'>
+                <h1>Subscribe to the <a href='https://youtube.com/c/FlipOfficial' target="_blank" rel="noopener noreferrer">
                 <motion.span style={{color: '#ac4684', textDecoration: 'none'}}
                             animate = {{opacity: [1., 0.5, 1., 1., 0.75, 1.]}}
                             transition = {{duration: 0.1, repeat: Infinity, repeatDelay: 1}}>YouTube</motion.span>
@@ -182,7 +184,7 @@ const TV = () => {
             </div>
 
             <div className='col youtube-player'>
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=UUZDRxAtdK43I73YrHU9pz2g" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=UUZDRxAtdK43I73YrHU9pz2g" frameBorder="0" allowFullScreen></iframe>
             </div>
 
         </div>

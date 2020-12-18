@@ -188,6 +188,12 @@ blockquote {
     }
 }
 
+@media (max-width: 768px) {
+    .info-col {
+        width: 90%;
+    }
+}
+
 `
 const iconColor = 'white'
 const iconSize = '2.5em'
@@ -282,6 +288,14 @@ class Radio extends Component {
             {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 2}
         ],
           albumtitle: 'Oh, and I like you (Single)',
+        // songlist: [
+        //     {title: 'Dirt to Stardust', audiofile: dirt2stardust, id: 1},
+        //     {title: 'Bad Bad B***h', audiofile: bbbitch, id: 2},
+        //     {title: 'Lies', audiofile: lies, id: 3},
+        //     {title: 'All Wrong', audiofile: allwrong, id: 4}
+
+        // ],
+        // albumtitle: 'Flip EP',
           discographySlides: 3
       };
 
@@ -373,7 +387,7 @@ class Radio extends Component {
                         <p>Click on an album below to play it!</p>
                     </div>
                     <Slider className='discography center'
-                        dots = {true}
+                        dots = {false}
                         infinite = {true}
                         speed = {200}
                         arrows = {true}
@@ -383,7 +397,9 @@ class Radio extends Component {
                         centerPadding = '5%'
                         >
                         <div>
-                        <img src={ilikeyoucover} onClick = {() => this.handleAlbumClick ('ilikeyousingle')}/>
+                        <img src={ilikeyoucover} 
+                        onClick = {() => this.handleAlbumClick ('ilikeyousingle')}
+                        />
                         </div>
                         <div>
                         <img src={flipepcover} onClick = {() => this.handleAlbumClick ('flipep')}/>

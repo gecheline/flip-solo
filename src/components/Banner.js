@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Parallax, Background } from 'react-parallax';
-import ilikeyou_h from '../assets/ilikeyou_h.mp4'
-import ilikeyou_sq from '../assets/ilikeyou_sq.mp4'
-import ilikeyou_v from '../assets/ilikeyou_v.mp4'
+import ilikeyou_h from '../assets/ilikeyou_h.mp4';
+import ilikeyou_v from '../assets/ilikeyou_v.mp4';
+import ilikeyou_v_png from '../assets/ilikeyou_v.png';
+import ilikeyou_h_png from '../assets/ilikeyou_h.png';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -63,7 +64,7 @@ const pandora = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" heig
 class Banner extends Component {
     constructor(props) {
         super(props);
-        this.state = { width: 0, height: 0, banner: {} };
+        this.state = { width: 0, height: 0, banner: {}, poster: {} };
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
       }
       
@@ -80,15 +81,15 @@ class Banner extends Component {
       updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         if (3*window.innerWidth > 4*window.innerHeight) {
-            this.setState({'banner': ilikeyou_h});
+            this.setState({'banner': ilikeyou_h, 'poster': ilikeyou_h_png});
         }
 
         if (3*window.innerWidth < 4*window.innerHeight && 4*window.innerWidth > 3*window.innerHeight) {
-            this.setState({'banner': ilikeyou_h});
+            this.setState({'banner': ilikeyou_h, 'poster': ilikeyou_h_png});
         }
 
         if (4*window.innerWidth < 3*window.innerHeight) {
-            this.setState({'banner': ilikeyou_v});
+            this.setState({'banner': ilikeyou_v, 'poster': ilikeyou_v_png});
         }
       }
     
@@ -100,37 +101,37 @@ class Banner extends Component {
     <Styles>
         <Parallax strength={300} className='customBg'>
         <Background className="customBg">
-            <video autoPlay muted loop src={this.state.banner} alt="I like you cover" style={{width: '100vw', height: 'auto'}}/>
+            <video autoPlay muted loop src={this.state.banner} alt="I like you cover" poster = {this.state.poster} style={{width: '100vw', height: 'auto'}}/>
         </Background>
         <motion.h1 className='header' 
             initial = {{y: -100, opacity: 0}}
             animate = {{y: 0, opacity: 1}}
             transition = {{type: 'spring'}}
             >
-        NEW SINGLE COMING DEC 18
+        NEW SINGLE OUT NOW!
         </motion.h1>
         <motion.div className='header-links'>
-        <a href="https://distrokid.com/hyperfollow/flp3/oh-and-i-like-you"><motion.h1     
+        <a href="#radio"><motion.h1     
         animate = {{opacity: [1., 0.5, 1.]}}
         transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
         >LISTEN HERE</motion.h1></a>
-        <a href="https://open.spotify.com/album/3gzaajy5HJLS0h9o9M8snA" target="_blank" rel="noopener noreferrer"><motion.div     
+        <a href="https://open.spotify.com/track/4PEmVIGvVqlHAzpkLcOVvY?si=oHVv4z65Qsyea5CeUK3BKQ" target="_blank" rel="noopener noreferrer"><motion.div     
         animate = {{scale: [1., 0.9, 1.]}}
         transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
         >{spotify}</motion.div></a>
-        <a href="https://music.apple.com/us/album/fl-p-ep/1532114353" target="_blank" rel="noopener noreferrer"><motion.div     
+        <a href="https://tinyurl.com/yc28gjzd" target="_blank" rel="noopener noreferrer"><motion.div     
         animate = {{scale: [1., 0.9, 1.]}}
         transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.5}}>{itunes}</motion.div></a>
-        <a href="https://music.amazon.com/albums/B085XZQ89W" target="_blank" rel="noopener noreferrer"><motion.div     
+        <a href="https://www.amazon.com/gp/product/B08PG365SC/?tag=distrokid06-20" target="_blank" rel="noopener noreferrer"><motion.div     
         animate = {{scale: [1., 0.9, 1.]}}
         transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2.7}}>{amazonmusic}</motion.div></a>
-        <a href="https://www.deezer.com/us/album/173854542" target="_blank" rel="noopener noreferrer"><motion.div     
+        <a href="https://deezer.page.link/snNEB7tjo8z1g7PK7" target="_blank" rel="noopener noreferrer"><motion.div     
         animate = {{scale: [1., 0.9, 1.]}}
-    transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>{deezer}</motion.div></a>
-        <a href="https://www.pandora.com/artist/flp/AR3nzfJxrgnX2zP" target="_blank" rel="noopener noreferrer">
-                    <motion.div     
-                        animate = {{scale: [1., 0.9, 1.]}}
-                    transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 1.3}}>{pandora}</motion.div>
+        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>{deezer}</motion.div></a>
+        <a href="https://www.pandora.com/artist/flp/oh-and-i-like-you-single/ALbXJJlwPxhg442" target="_blank" rel="noopener noreferrer">
+        <motion.div     
+            animate = {{scale: [1., 0.9, 1.]}}
+            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 1.3}}>{pandora}</motion.div>
                     </a>
         </motion.div>
         </Parallax>

@@ -187,7 +187,7 @@ class RadioPlayer extends Component {
     handleSongPlaying = () => {
       const sound = document.getElementById("fmstatic")
       setTimeout(() => {
-        sound.pause();}, 3000);
+        sound.pause();}, 1000);
   
         
   
@@ -203,7 +203,6 @@ class RadioPlayer extends Component {
         <Sound
           url={this.state.soundfile}
           playStatus={this.state.soundStatus}
-          onLoading={this.handleSongLoading}
           onPlaying={this.handleSongPlaying}
           onFinishedPlaying={this.autoPlayNext}
           />

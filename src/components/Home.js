@@ -6,7 +6,7 @@ const Styles = styled.div
 `
 .section{
     margin-top: 0px;
-    font-size: 2rem;
+    // font-size: 2rem;
 }
 .mainImage {
     width:auto;

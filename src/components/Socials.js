@@ -1,7 +1,6 @@
 import React from 'react';
 import { Parallax, Background } from 'react-parallax';
 import styled from 'styled-components';
-import bgimage from '../assets/Bgstars2.png';
 
 
 const Styles = styled.div
@@ -33,7 +32,7 @@ const Styles = styled.div
 const Socials = () => {
     return (
         <Styles>
-            <Parallax bgImage={bgimage} strength={300} className='customBg'>
+            {/* <Parallax bgImage={bgimage} strength={300} className='customBg'> */}
             <div className='news-section' id='socials'>
                 <iframe 
                 allowfullscreen id="wallsio-iframe" src="https://walls.io/a5khc?nobackground=1&amp;show_header=0" 
@@ -42,7 +41,7 @@ const Socials = () => {
                 </iframe>
 
             </div>
-            </Parallax>
+            {/* </Parallax> */}
         </Styles>
       );
 }

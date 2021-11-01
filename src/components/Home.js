@@ -1,6 +1,9 @@
 import React from 'react';
+import Slider from "react-slick";
 import styled from 'styled-components';
-import flippy from '../assets/flippy.png';
+import flippy1 from '../assets/ps_street.png';
+import flippy2 from '../assets/ps_city.png';
+import flippy3 from '../assets/ps_cityhall.png';
 
 const Styles = styled.div
 `
@@ -16,26 +19,34 @@ const Styles = styled.div
     margin-top: 5rem;
     margin-bottom: 2rem;
 }
-`
 
+`
+// The home section now will be a roller choice for the others: music live merch (no navbar here)
 const Home = () => {
     return ( 
         <Styles>
             <div className='section' id='home'>
-            <div className='col'>
-            <img src={flippy} className='mainImage'></img>
-            </div>
-            <div className='col'>
-            <blockquote 
-                    // style={{borderLeft: '3px solid #ac4684'}}
-                    >
-                    <p>
-                    <em>I am a musician with passion, joy and (according to my therapist) a good sense of humor.</em>
-                    </p>
-                    <p style={{fontSize: '0.9em', textAlign: 'right', marginRight: '5%'}}>
-                        — Flip, bio (2020)</p>
-                    </blockquote>
-            </div>
+                <Slider className='center'
+                        dots = {false}
+                        infinite = {true}
+                        speed = {200}
+                        arrows = {true}
+                        slidesToShow = {3}
+                        slidesToScroll = {1}
+                        centerMode = {true}
+                        centerPadding = '5%'
+                        >
+                        <div>
+                        <img src={flippy1} 
+                        />
+                        </div>
+                        <div>
+                        <img src={flippy2}/>
+                        </div>
+                        <div>
+                        <img src={flippy3}/>
+                        </div>
+                        </Slider>
             </div>
 
         </Styles>

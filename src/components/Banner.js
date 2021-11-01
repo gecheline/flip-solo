@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Parallax, Background } from 'react-parallax';
-import ilikeyou_h from '../assets/ilikeyou_h.mp4';
-import ilikeyou_v from '../assets/ilikeyou_v.mp4';
-import ilikeyou_v_png from '../assets/ilikeyou_v.png';
-import ilikeyou_h_png from '../assets/ilikeyou_h.png';
+import cover_h from '../assets/twou_horizontal.mp4';
+import cover_v from '../assets/twou_vertical.mp4';
+import cover_v_png from '../assets/twou_vertical.png';
+import cover_h_png from '../assets/twou_horizontal.png';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -13,16 +13,25 @@ const Styles = styled.div
     height: 56.25vw;
     width: 100vw;
     min-width: 100vw;
-    background-color: #280637;
+    background-color: black;
 }
 
 .header {
-    color: rgba(255,255,255,0.75);
-    font-size: 3rem;
-    margin-top: 3rem;
-    // Font-Family: 'Permanent Marker', Cursive;
-    font-family: 'Codystar', cursive;
+    color: rgba(255,255,255,0.5);
+    font-size: 3.5em;
+    margin-top: 20%;
+    margin-right: 50%;
+    font-family: 'Gugi', cursive;
     padding: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header p {
+    color: #BE4037;
+    font-family: 'Mr De Haviland', cursive;
+    margin-right: 6em;
+    text-decoration: underline;
 }
 
 .header-links {
@@ -45,11 +54,16 @@ const Styles = styled.div
     .customBg {
       height: 160vw;
     }
+
+    .header {
+      margin-right: 0%;
+      margin-top: 40%;
+    }
   }
 `
 
-const iconColor = 'rgba(255,255,255,0.75)'
-const iconSize = '2em'
+const iconColor = '#BE4037' //'rgba(255,255,255,0.5)'
+const iconSize = '3.5em'
 // #9bceb5
 const spotify = <svg 
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height={iconSize}>
@@ -81,15 +95,15 @@ class Banner extends Component {
       updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         if (3*window.innerWidth > 4*window.innerHeight) {
-            this.setState({'banner': ilikeyou_h, 'poster': ilikeyou_h_png});
+            this.setState({'banner': cover_h, 'poster': cover_h_png});
         }
 
         if (3*window.innerWidth < 4*window.innerHeight && 4*window.innerWidth > 3*window.innerHeight) {
-            this.setState({'banner': ilikeyou_h, 'poster': ilikeyou_h_png});
+            this.setState({'banner': cover_h, 'poster': cover_h_png});
         }
 
         if (4*window.innerWidth < 3*window.innerHeight) {
-            this.setState({'banner': ilikeyou_v, 'poster': ilikeyou_v_png});
+            this.setState({'banner': cover_v, 'poster': cover_v_png});
         }
       }
     
@@ -103,37 +117,51 @@ class Banner extends Component {
         <Background className="customBg">
             <video autoPlay muted loop src={this.state.banner} alt="I like you cover" poster = {this.state.poster} style={{width: '100vw', height: 'auto'}}/>
         </Background>
-        <motion.h1 className='header' 
-            initial = {{y: -100, opacity: 0}}
-            animate = {{y: 0, opacity: 1}}
-            transition = {{type: 'spring'}}
-            >
-        NEW SINGLE OUT NOW!
-        </motion.h1>
+        <div className='header'>
+          <p><em>latest single</em></p>
+          <h2>
+          WELL OF US
+          </h2>
+        
         <motion.div className='header-links'>
-        <a href="#radio"><motion.h1     
-        animate = {{opacity: [1., 0.5, 1.]}}
-        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
-        >LISTEN HERE</motion.h1></a>
-        <a href="https://open.spotify.com/track/4PEmVIGvVqlHAzpkLcOVvY?si=oHVv4z65Qsyea5CeUK3BKQ" target="_blank" rel="noopener noreferrer"><motion.div     
-        animate = {{scale: [1., 0.9, 1.]}}
-        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}
-        >{spotify}</motion.div></a>
-        <a href="https://tinyurl.com/yc28gjzd" target="_blank" rel="noopener noreferrer"><motion.div     
-        animate = {{scale: [1., 0.9, 1.]}}
-        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.5}}>{itunes}</motion.div></a>
-        <a href="https://www.amazon.com/gp/product/B08PG365SC/?tag=distrokid06-20" target="_blank" rel="noopener noreferrer"><motion.div     
-        animate = {{scale: [1., 0.9, 1.]}}
-        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2.7}}>{amazonmusic}</motion.div></a>
-        <a href="https://deezer.page.link/snNEB7tjo8z1g7PK7" target="_blank" rel="noopener noreferrer"><motion.div     
-        animate = {{scale: [1., 0.9, 1.]}}
-        transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>{deezer}</motion.div></a>
+        <a href="https://open.spotify.com/track/4PEmVIGvVqlHAzpkLcOVvY?si=oHVv4z65Qsyea5CeUK3BKQ" target="_blank" rel="noopener noreferrer">
+          <motion.div     
+          animate = {{scale: [1., 1,, 1.]}}
+          onHoverStart = {{}}
+          transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2}}>
+            {spotify}
+          </motion.div>
+        </a>
+        <a href="https://tinyurl.com/yc28gjzd" target="_blank" rel="noopener noreferrer">
+          <motion.div     
+          animate = {{scale: [1., 1., 1.]}}
+          transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.5}}>
+            {itunes}
+          </motion.div>
+        </a>
+        <a href="https://www.amazon.com/gp/product/B08PG365SC/?tag=distrokid06-20" target="_blank" rel="noopener noreferrer">
+          <motion.div     
+          animate = {{scale: [1., 1., 1.]}}
+          transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 2.7}}>
+            {amazonmusic}
+          </motion.div>
+        </a>
+        <a href="https://deezer.page.link/snNEB7tjo8z1g7PK7" target="_blank" rel="noopener noreferrer">
+          <motion.div     
+          animate = {{scale: [1., 1., 1.]}}
+          transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 3.}}>
+          {deezer}
+          </motion.div>
+        </a>
         <a href="https://www.pandora.com/artist/flp/oh-and-i-like-you-single/ALbXJJlwPxhg442" target="_blank" rel="noopener noreferrer">
-        <motion.div     
-            animate = {{scale: [1., 0.9, 1.]}}
-            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 1.3}}>{pandora}</motion.div>
-                    </a>
+          <motion.div     
+            animate = {{scale: [1., 1., 1.]}}
+            transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 1.3}}>
+              {pandora}
+          </motion.div>
+        </a>
         </motion.div>
+        </div>
         </Parallax>
     </Styles>
 );}

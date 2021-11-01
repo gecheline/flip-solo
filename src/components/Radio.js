@@ -46,7 +46,7 @@ import traffic from '../assets/SunriseEP/Traffic.mp3';
 import ilikeyoucover from '../assets/OhAndIlikeYouSingle/ilikeyou_square.png'
 import ohandilikeyou from '../assets/OhAndIlikeYouSingle/Oh_and_I_like_you.mp3';
 
-import bgimage from '../assets/Bgstars1.png';
+import bgimage from '../assets/music_bg.png';
 
 const Styles = styled.div
 `

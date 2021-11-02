@@ -10,8 +10,8 @@ const AllSections = ({ element }) => {
     return (
         <div ref={element}>
             <Home />
-            <Radio />
-            <TV />
+            {/* <Radio /> */}
+            {/* <TV /> */}
             <Socials />
             {/* <About />    */}  
         </div>

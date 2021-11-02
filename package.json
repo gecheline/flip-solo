@@ -16,6 +16,7 @@
     "json2mq": "^0.2.0",
     "lodash.debounce": "^4.0.8",
     "react": "^17.0.1",
+    "react-alice-carousel": "^2.5.1",
     "react-background-video-player": "^1.1.7",
     "react-dom": "^17.0.1",
     "react-id-swiper": "^4.0.0",

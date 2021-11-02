@@ -1,54 +1,112 @@
 import React from 'react';
-import Slider from "react-slick";
+import AliceCarousel from 'react-alice-carousel';
+import '../../node_modules/react-alice-carousel/lib/alice-carousel.css';
 import styled from 'styled-components';
-import flippy1 from '../assets/ps_street.png';
-import flippy2 from '../assets/ps_city.png';
-import flippy3 from '../assets/ps_cityhall.png';
+import flippy1 from '../assets/home1.jpg';
+import flippy2 from '../assets/home2.jpg';
+import flippy3 from '../assets/home3.jpg';
+import flippy4 from '../assets/home4.jpg';
 
 const Styles = styled.div
 `
-.section{
-    margin-top: 0px;
-    // font-size: 2rem;
-}
-.mainImage {
-    width:auto;
-    height:auto;
-    max-height: 75vh;
-    max-width: 100%;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
+img {
+    height: auto;
+    margin-top: 2%;
 }
 
+button {
+    position: absolute;
+    font-family: 'Gugi', cursive;
+    background-color: rgba(255,255,255,0.25);
+    color: white; // #f5d2b5;
+    font-size: 5rem;
+    padding: 12px 24px;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#music {
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#live {
+    top: 60%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#merch {
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#contact {
+    top: 70%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    img {
+        width: 99vw;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    img {
+        width: 49vw;
+    }
+}
 `
+
+const responsive = {
+    0: { items: 1 },
+    768: { items: 2 }
+};
+
+const items = [
+    <div className='cover-item'>
+        <img src={flippy1} />
+        <button type="button" className='glow' id='music'>MUSIC</button>
+    </div>,
+    <div className='cover-item'>
+        <img src={flippy2}/>
+        <button type="button" className='glow' id='live'>LIVE</button>
+    </div>,
+    <div className='cover-item'>
+        <img src={flippy4}/>
+        <button type="button" className='glow' id='merch'>MERCH</button>
+    </div>,
+    <div className='cover-item'>
+        <img src={flippy3}/>
+        <button type="button" className='glow' id='contact'>CONTACT</button>
+    </div>
+];
 // The home section now will be a roller choice for the others: music live merch (no navbar here)
 const Home = () => {
     return ( 
         <Styles>
-            <div className='section' id='home'>
-                <Slider className='center'
-                        dots = {false}
-                        infinite = {true}
-                        speed = {200}
-                        arrows = {true}
-                        slidesToShow = {3}
-                        slidesToScroll = {1}
-                        centerMode = {true}
-                        centerPadding = '5%'
-                        >
-                        <div>
-                        <img src={flippy1} 
-                        />
-                        </div>
-                        <div>
-                        <img src={flippy2}/>
-                        </div>
-                        <div>
-                        <img src={flippy3}/>
-                        </div>
-                        </Slider>
-            </div>
-
+        <AliceCarousel
+            autoPlay
+            autoPlayStrategy="default"
+            autoPlayInterval={2000}
+            animationDuration={1000}
+            animationType="slide"
+            infinite
+            touchTracking={true}
+            disableButtonsControls
+            disableDotsControls
+            items={items}
+            responsive={responsive}
+        />
         </Styles>
      );
 }

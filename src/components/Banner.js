@@ -20,7 +20,7 @@ const Styles = styled.div
     color: rgba(255,255,255,0.5);
     font-size: 3.5em;
     margin-top: 20%;
-    margin-right: 50%;
+    // margin-right: 50%;
     font-family: 'Gugi', cursive;
     padding: 1%;
     display: flex;
@@ -30,7 +30,8 @@ const Styles = styled.div
 .header p {
     color: #BE4037;
     font-family: 'Mr De Haviland', cursive;
-    margin-right: 6em;
+    font-size: 1.5em;
+    // margin-right: 4em;
     text-decoration: underline;
 }
 
@@ -118,7 +119,7 @@ class Banner extends Component {
             <video autoPlay muted loop src={this.state.banner} alt="I like you cover" poster = {this.state.poster} style={{width: '100vw', height: 'auto'}}/>
         </Background>
         <div className='header'>
-          <p><em>latest single</em></p>
+          <p><em>out now!</em></p>
           <h2>
           WELL OF US
           </h2>

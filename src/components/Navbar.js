@@ -16,6 +16,7 @@ const Styles = styled.div
   }
   
   .navbar-hidden {
+    background-color: #2b0404;
     opacity: 0;
 
   }

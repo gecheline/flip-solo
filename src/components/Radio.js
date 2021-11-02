@@ -3,54 +3,15 @@ import { Parallax, Background } from 'react-parallax';
 import styled from 'styled-components';
 import RadioPlayer from './RadioPlayer'
 import {motion} from 'framer-motion';
-import Slider from "react-slick";
-import "../../node_modules/slick-carousel/slick/slick.css";
-import "../../node_modules/slick-carousel/slick/slick-theme.css";
- 
-import flipepcover from '../assets/FlipEP/coverart.png'
-import dirt2stardust from '../assets/FlipEP/Dirt_to_stardust.mp3';
-import bbbitch from '../assets/FlipEP/Bad_bad_bitch.mp3';
-import allwrong from '../assets/FlipEP/All_wrong.mp3';
-import lies from '../assets/FlipEP/Lies.mp3';
 
-import streamcover from '../assets/StreamOfThoughts/cover_final.png'
-import arrival from '../assets/StreamOfThoughts/Arrival.mp3';
-import canthavetoomuch from '../assets/StreamOfThoughts/Cant_have_too_much.mp3';
-import chillguitar from '../assets/StreamOfThoughts/Chill_Guitar.mp3';
-import gettingready from '../assets/StreamOfThoughts/Getting_ready.mp3';
-import mondayne from '../assets/StreamOfThoughts/Monday_ne.mp3';
-import views from '../assets/StreamOfThoughts/Views.mp3';
-import fastchat from '../assets/StreamOfThoughts/Fast_Chat.mp3';
-import justchatting from '../assets/StreamOfThoughts/Just_chatting.mp3';
-import dontwannabelikeme from '../assets/StreamOfThoughts/I_dont_want_to_be_like_me.mp3'
+import bgimage from '../assets/music_bg.jpg';
 
-import baecover from '../assets/SongsBae/cover.png';
-import space from '../assets/SongsBae/are_we_in_space_or_something.mp3';
-import livingroom from '../assets/SongsBae/chillin_in_the_living_room.mp3';
-import kitchenhang from '../assets/SongsBae/kitchen_hang_out.mp3';
-import yoursong from '../assets/SongsBae/let_me_hear_your_song.mp3';
-import rising from '../assets/SongsBae/rising.mp3';
-import sleepycrew from '../assets/SongsBae/sleepy_crew.mp3';
-import ivanwalk from '../assets/SongsBae/time_to_take_ivan_out_for_a_walk.mp3';
-
-import sunrisecover from '../assets/SunriseEP/cover.jpg';
-import coffee from '../assets/SunriseEP/Coffee.mp3';
-import emails from '../assets/SunriseEP/E-Mails.mp3';
-import newspaper from '../assets/SunriseEP/Newspaper.mp3';
-import pillow from '../assets/SunriseEP/Pillow.mp3';
-import ready4day from '../assets/SunriseEP/Ready_for_the_day.mp3';
-import toothbrush from '../assets/SunriseEP/Toothbrush.mp3';
-import traffic from '../assets/SunriseEP/Traffic.mp3';
-
-
-import ilikeyoucover from '../assets/OhAndIlikeYouSingle/ilikeyou_square.png'
-import ohandilikeyou from '../assets/OhAndIlikeYouSingle/Oh_and_I_like_you.mp3';
-
-import bgimage from '../assets/music_bg.png';
+import latestsong from '../assets/WellOfUs/WellOfUs.mp3';
 
 const Styles = styled.div
 `
 .section {
+    height: 100vh;
     padding-bottom: 2em;
     background-color: transparent;
     color: white;
@@ -125,33 +86,6 @@ blockquote {
     
 }
 
-
-.discography {
-    // height: 20vw;
-    width: 75vw;
-    height: auto;
-    // margin-left: 10%;
-    // margin-top: 1vh;
-    // background-color:  #32327c;
-    padding: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.discography div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.discography img{
-    height: 20vw;
-    width: 20vw;
-    padding: 1%;
-}
-
-
 @media (max-width: 992px) {
     .radio-col {
         width: 100%;
@@ -165,27 +99,6 @@ blockquote {
         height:auto;
         margin-bottom: 30px;
     }
-
-    .discography {
-        height: auto;
-        width: 75vw;
-        // margin-left: 10%;
-        // margin-top: 1vh;
-        // background-color: #0a0e1e;
-    }
-    
-    .discography div {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .discography img{
-        height: 25vw;
-        width: 25vw;
-        padding: 1%;
-    }
 }
 
 @media (max-width: 768px) {
@@ -196,7 +109,7 @@ blockquote {
 
 `
 const iconColor = 'white'
-const iconSize = '2.5em'
+const iconSize = '4em'
 // #9bceb5
 const spotify = <svg 
     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height={iconSize}>
@@ -207,155 +120,43 @@ const itunes = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" hei
 const amazonmusic = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height={iconSize}><path fill={iconColor} d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8v40.6zm136 163.5c-7.7 10-70 67-174.5 67S34.2 408.5 9.7 379c-6.8-7.7 1-11.3 5.5-8.3C88.5 415.2 203 488.5 387.7 401c7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z"/></svg>
 const pandora = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" height={iconSize}><path fill={iconColor} d="M14.972 5.412C14.682 2.377 11.955 0 8.763 0H.999v16h4c.551 0 1-.448 1-1v-3h3a6.01 6.01 0 0 0 4.44-1.965 5.951 5.951 0 0 0 1.533-4.623z"/></svg>
 
-const iLikeYouSingle = {tag: 'ilikeyousingle', 
-                        albumtitle: 'Oh, and I like you (Single)', 
-                        songlist: [
-                            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 1},
-                            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 2}
-                        ]}
-
-const flipEP = {tag: 'flipep', 
-                albumtitle: 'Fl!p (EP)', 
-                songlist: [
-                    {title: 'Dirt to Stardust', audiofile: dirt2stardust, id: 1},
-                    {title: 'Bad, Bad B***h', audiofile: bbbitch, id: 2},
-                    {title: 'Lies', audiofile: lies, id: 3},
-                    {title: 'All Wrong', audiofile: allwrong, id: 4}
-                ]}
-
-const aStreamofThoughts = {tag: 'astreamofthoughts', 
-                            albumtitle: 'A Stream of Thoughts', 
-                            songlist: [
-                                {title: 'Views', audiofile: views, id: 1},
-                                {title: 'Arrival', audiofile: arrival, id: 2},
-                                {title: 'Can\'t have too much', audiofile: canthavetoomuch, id: 3},
-                                {title: 'Chill Guitar', audiofile: chillguitar, id: 4},
-                                {title: 'Getting Ready', audiofile: gettingready, id: 5},
-                                {title: 'Monday Ne', audiofile: mondayne, id: 6},
-                                {title: 'Fast Chat', audiofile: fastchat, id: 7},
-                                {title: 'I don\'t want to be like me', audiofile: dontwannabelikeme, id: 8},
-                                {title: 'Just chatting', audiofile: justchatting, id: 9}
-                            ]}
-
-const songsBae = {tag: 'songsbae', 
-                            albumtitle: 'songs I wrote to listen with bae', 
-                            songlist: [
-                                {title: 'rising', audiofile: rising, id: 1},
-                                {title: 'chillin in the living room', audiofile: livingroom, id: 2},
-                                {title: 'are we in space or something', audiofile: space, id: 3},
-                                {title: 'kitchen hangout', audiofile: kitchenhang, id: 4},
-                                {title: 'let me hear your song', audiofile: yoursong, id: 5},
-                                {title: 'time to take ivan out for a walk', audiofile: ivanwalk, id: 6},
-                                {title: 'sleepy crew', audiofile: sleepycrew, id: 7}
-                            ]}
-
-const sunriseEP = {tag: 'sunriseep', 
-                            albumtitle: 'Sunrise EP', 
-                            songlist: [
-                                {title: 'Pillow', audiofile: pillow, id: 1},
-                                {title: 'Toothbrush', audiofile: toothbrush, id: 2},
-                                {title: 'Coffee',  audiofile: coffee, id: 3},
-                                {title: 'Newspaper', audiofile: newspaper, id: 4},
-                                {title: 'Emails', audiofile: emails, id: 5},
-                                {title: 'Traffic', audiofile: traffic, id: 6},
-                                {title: 'Ready for the Day', audiofile: ready4day, id: 7},
-                            ]}
-
-// const params = {
-//     effect: 'coverflow',
-//     grabCursor: true,
-//     centeredSlides: true,
-//     slidesPerView: 'auto',
-//     coverflowEffect: {
-//         rotate: 50,
-//         stretch: 0,
-//         depth: 100,
-//         modifier: 1,
-//         slideShadows: true
-//     },
-//     pagination: {
-//         el: '.swiper-pagination'
-//     }
-//     }
-
 class Radio extends Component {
  
     constructor(props) {
       super(props);
       this.state = {
           songlist: [
-            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 1},
-            {title: 'Oh, and I like you', audiofile: ohandilikeyou, id: 2}
+            {title: 'Well of Us', audiofile: latestsong, id: 1},
         ],
-          albumtitle: 'Oh, and I like you (Single)',
-        // songlist: [
-        //     {title: 'Dirt to Stardust', audiofile: dirt2stardust, id: 1},
-        //     {title: 'Bad Bad B***h', audiofile: bbbitch, id: 2},
-        //     {title: 'Lies', audiofile: lies, id: 3},
-        //     {title: 'All Wrong', audiofile: allwrong, id: 4}
-
-        // ],
-        // albumtitle: 'Flip EP',
-          discographySlides: 3
+          albumtitle: 'Well of Us (Single)',
       };
 
-        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    //   this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
         
     }
 
-    componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-    }
+    // componentDidMount() {
+    // this.updateWindowDimensions();
+    // window.addEventListener('resize', this.updateWindowDimensions);
+    // }
 
 
-    componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-    }
-
-    updateWindowDimensions() {
-    if (window.innerWidth > 992) {
-        this.setState({'discographySlides': 3});
-    }
-
-    else {
-        this.setState({'discographySlides': 2});
-    }
-    }
+    // componentWillUnmount() {
+    // window.removeEventListener('resize', this.updateWindowDimensions);
+    // }
 
 
-
-    handleAlbumClick (tag) {
-        if (tag === 'ilikeyousingle') { this.setState({songlist: iLikeYouSingle.songlist, albumtitle: iLikeYouSingle.albumtitle})};
-        if (tag === 'flipep') { this.setState({songlist: flipEP.songlist, albumtitle: flipEP.albumtitle})};
-        if (tag === 'astreamofthoughts') { this.setState({songlist: aStreamofThoughts.songlist, albumtitle: aStreamofThoughts.albumtitle})};
-        if (tag === 'songsbae') { this.setState({songlist: songsBae.songlist, albumtitle: songsBae.albumtitle})};
-        if (tag === 'sunriseep') { this.setState({songlist: sunriseEP.songlist, albumtitle: sunriseEP.albumtitle})};
-        }
-
-
-    
     render() {
         return (
         <Styles>
-            <Parallax bgImage={bgimage} strength={500} className='customBg'>
+            <Parallax bgImage={bgimage} strength={100} className='customBg'>
             <div className='section' id='radio'>
             <div className='col'>
-                <h1>RADIO</h1>
                 </div>
                 <div className='col info-col'>
-                    <blockquote 
-                    // style={{borderLeft: '3px solid #ac4684'}}
-                    >
-                    <p id='grandmainfo'>
-                            You know how Fl!p always says his music is available on all streaming platforms, including 
-                            <b><motion.span style={{color: '#ac4684', textDecoration: 'none'}}
-                            animate = {{opacity: [1., 0.75, 1.]}}
-                            transition = {{duration: 0.1, yoyo: Infinity, repeatDelay: 1}}> grandma's radio</motion.span></b>?
-                            </p>
-                    {/* <p style={{fontSize: '0.9em', textAlign: 'right', marginRight: '5%'}}>
-                        — Flip, every time</p> */}
-                    </blockquote>
+                    <div className='radio-col' id='grandmasradio'>
+                        <RadioPlayer songlist = {this.state.songlist} album = {this.state.albumtitle}/>
+                    </div>
 
                     <div className='music-icons'>
                         <a href="https://open.spotify.com/artist/3QPspeZAv0PwCnX6DDN59i?si=fQLCgS88SgijdPYs2woKyw" target="_blank" rel="noopener noreferrer"><motion.div     
@@ -377,44 +178,6 @@ class Radio extends Component {
                     transition = {{duration: 0.5, yoyo: Infinity, repeatDelay: 2, delay: 1.3}}>{pandora}</motion.div>
                     </a>
                     </div>
-                    {/* <p>You thought he was joking? Well, HE WASN'T!</p> */}
-
-                    <div className='radio-col' id='grandmasradio'>
-                    <RadioPlayer songlist = {this.state.songlist} album = {this.state.albumtitle}/>
-                    </div>
-
-                    <div className='grandmapointer'>
-                        <p>Click on an album below to play it!</p>
-                    </div>
-                    <Slider className='discography center'
-                        dots = {false}
-                        infinite = {true}
-                        speed = {200}
-                        arrows = {true}
-                        slidesToShow = {this.state.discographySlides}
-                        slidesToScroll = {1}
-                        centerMode = {true}
-                        centerPadding = '5%'
-                        >
-                        <div>
-                        <img src={ilikeyoucover} 
-                        onClick = {() => this.handleAlbumClick ('ilikeyousingle')}
-                        />
-                        </div>
-                        <div>
-                        <img src={flipepcover} onClick = {() => this.handleAlbumClick ('flipep')}/>
-                        </div>
-                        <div>
-                        <img src={streamcover} onClick = {() => this.handleAlbumClick ('astreamofthoughts')}/>
-                        </div>
-                        <div>
-                        <img src={baecover} onClick = {() => this.handleAlbumClick ('songsbae')}/>
-                        </div>
-                        <div>
-                        <img src={sunrisecover} onClick = {() => this.handleAlbumClick ('sunriseep')}/>
-                        </div>
-
-                        </Slider>
                     </div>
 
 

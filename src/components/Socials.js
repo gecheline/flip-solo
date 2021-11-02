@@ -14,8 +14,8 @@ const Styles = styled.div
     justify-content: center;
     align-items: center;
     // padding-top: 5%;
-    margin-bottom: 2%;
-    margin-top: 2%;
+    margin-bottom: 25px;
+    margin-top: 0;
     // border:
 }
 
@@ -24,7 +24,6 @@ const Styles = styled.div
     .news-section {
         height: 75vh;
         width: 100vw;
-        margin-bottom: 2.5%;
     }
 }
 `

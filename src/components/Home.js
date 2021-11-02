@@ -11,7 +11,8 @@ const Styles = styled.div
 `
 img {
     height: auto;
-    margin-top: 2%;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 button {
@@ -56,13 +57,13 @@ button {
 
 @media only screen and (min-width: 0px) and (max-width: 768px) {
     img {
-        width: 99vw;
+        width: 100vw;
     }
 }
 
 @media only screen and (min-width: 768px) {
     img {
-        width: 49vw;
+        width: 50vw;
     }
 }
 `

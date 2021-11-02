@@ -98,7 +98,7 @@ const Home = () => {
         <AliceCarousel
             autoPlay
             autoPlayStrategy="default"
-            autoPlayInterval={2000}
+            autoPlayInterval={1000}
             animationDuration={1000}
             animationType="slide"
             infinite

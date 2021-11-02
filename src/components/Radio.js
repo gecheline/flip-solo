@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Parallax, Background } from 'react-parallax';
 import styled from 'styled-components';
-import RadioPlayer from './RadioPlayer'
+import RadioNeon from './RadioPlayerNeon'
 import {motion} from 'framer-motion';
 
 import bgimage from '../assets/music_bg.jpg';
@@ -42,13 +42,13 @@ h1 {
 
 .radio-col svg
 {
-        height: 35vw;
+        height: auto;
         // min-height: 50vw;
-        width: auto;
+        width: 65vw;
         min-height: auto;
         max-height: auto;
         min-width: 50vw;
-        max-width: 100%;
+        max-width: 75vw;
         // margin-top: -30px;
 
 }
@@ -94,8 +94,8 @@ blockquote {
 
     .radio-col svg
     {
-        width: 100vw;
-        max-width: 100vw;
+        width: 90vw;
+        max-width: 90vw;
         height:auto;
         margin-bottom: 30px;
     }
@@ -155,7 +155,7 @@ class Radio extends Component {
                 </div>
                 <div className='col info-col'>
                     <div className='radio-col' id='grandmasradio'>
-                        <RadioPlayer songlist = {this.state.songlist} album = {this.state.albumtitle}/>
+                        <RadioNeon songlist = {this.state.songlist} album = {this.state.albumtitle}/>
                     </div>
 
                     <div className='music-icons'>
